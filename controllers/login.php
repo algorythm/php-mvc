@@ -14,6 +14,11 @@ class Login extends Controller
   {
     $this->view->render('login/index');
   }
+
+  function login () // "run" in the tutorial.
+  {
+      $this->model->login();
+  }
 }
 
 ?>

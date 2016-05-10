@@ -9,10 +9,18 @@
   </head>
   <body>
     <div id="header">
-      header <br/>
-      <a href="<?php echo URL; ?>Index">Home</a>
+      <!--header <br/>-->
+      <a href="<?php echo URL; ?>">Home</a>
       <a href="<?php echo URL; ?>Help">Help</a>
-      <a href="<?php echo URL; ?>Login">Login</a>
+      <?php if (Session::get('loggedIn') == true):?>
+        <a href="<?php echo URL; ?>profile">Profile</a>
+        <a href="<?php echo URL; ?>profile/logout">Logout</a>
+      <?php else: ?>
+        <a href="<?php echo URL; ?>login">Login</a>
+      <?php endif; ?>
+
+
+      <hr/><br/>
     </div>
 
     <div id="content">

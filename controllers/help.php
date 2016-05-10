@@ -17,8 +17,8 @@
 
     public function other($arg = false)
     {
-      require 'models/help_model.php';
-      $model = new Help_Model();
+      //require 'models/help_model.php';
+      //$model = new Help_Model();
       echo 'Isn\'t the help good enough for you? :(<br/>';
       echo '<hr/><a href="../help">[back]</a>';
       if (!empty($arg)) {

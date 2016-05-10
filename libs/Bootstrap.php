@@ -1,27 +1,19 @@
 <?php
   /**
-   *
+   * Bootstrap
    */
   class Bootstrap
   {
     function __construct()
     {
+      // Vartiables
       $url = isset($_GET['url']) ? $_GET['url'] : null;
       $url = rtrim($url, '/');
-      //$url = rtrim($url, '.php'); /* http://workspace/ virker nu, men kan dette måske skabe andre problemer? */ //nu virker http://workspace/help ikke
       $url = explode('/', $url);
-
-      //print_r($url);
-      //echo "<br/><br/>";
 
       if ($url[0] == 'index.php') /* hvis http://workspace/ i stedet for http://workspace/index/ */
       {
-        //require 'controllers/index'; /* Her virker http://workspace/ ikke? */
-        //$controller = new Index;
-        //$controller->index();
-        //return false;
-
-        $url[0] = 'index'; 
+        $url[0] = 'index';
       }
 
       $file = 'controllers/' . $url[0] . '.php';
@@ -35,6 +27,7 @@
       }
 
       $controller = new $url[0];
+      $controller->loadModel($url[0]);
 
       if (isset($url[2])) /* if view AND method (fx: http://workspace/index/testFunction/) */
       {
